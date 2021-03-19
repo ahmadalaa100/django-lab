@@ -12,7 +12,7 @@ def signup(request):
         password = form.changed_data.get("password1")
         user = authenticate(username=username ,password=password)
         if user:
-            login(request,user):
+            login(request,user)
             return redirect('index')
 
     return render(request,"registrations/singup.html",{

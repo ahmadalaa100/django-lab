@@ -2,14 +2,14 @@ from django.db import models
 
 # Create your models here.
 
-class category(models.model):
+class category(models.Model):
     name = models.CharField(max_length=50,null=True)
 
 
     def __str__(self):
         return str(self.name)
 
-class country(models.model):
+class country(models.Model):
     name = models.CharField(max_length=50)
     def __str__(self):
         return str(self.name)
@@ -22,7 +22,7 @@ class rate(models.Model):
 
 
 
-class movie(models.model):
+class movie(models.Model):
     title = models.CharField(max_length=100),
     overview = models.TextField(max_length=500),
     year = models.DateField(),

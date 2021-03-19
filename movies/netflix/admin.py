@@ -1,25 +1,26 @@
 from django.contrib import admin
-from .models import movie,category,country,rate
-
+from .models import movie,country,rate, category
 # Register your models here.
-class MovieInline(admin.TabularInline):
+
+
+class MovieInline(admin.StackedInline):
     model = movie
-    extra = 1 
+    extra = 4
     max_num = 10
 
 
-class CountryAdmin(admin.ModelAdmin):
+
+class CoutnryAdmin(admin.ModelAdmin):
     inlines = [MovieInline]
 
 
 
 class MovieAdmin(admin.ModelAdmin):
-    list_display=('title','overview','year')
-    list_filter=('year')
+    list_display = ("title", "overview", "year")
+    # list_filter = ("year",)
 
+admin.site.register(movie, MovieAdmin)
 
-
-admin.site.register(movie,MovieAdmin)
-admin.site.register(category)
-admin.site.register(country,CountryAdmin)
+admin.site.register(country, CoutnryAdmin)
 admin.site.register(rate)
+admin.site.register(category)

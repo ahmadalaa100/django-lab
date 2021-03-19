@@ -12,3 +12,5 @@ class categoryForm(forms.ModelForm):
     class meta:
         model = category
         fields = "__all__"
+
+
